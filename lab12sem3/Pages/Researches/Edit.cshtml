@@ -1,0 +1,40 @@
+﻿@page "{id:int}"
+@model lab12sem3.Pages.Researches.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Research</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Research.Id" />
+            <div class="form-group">
+                <label asp-for="Research.Title" class="control-label"></label>
+                <input asp-for="Research.Title" class="form-control" />
+                <span asp-validation-for="Research.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Research.Description" class="control-label"></label>
+                <input asp-for="Research.Description" class="form-control" />
+                <span asp-validation-for="Research.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
